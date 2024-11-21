@@ -2,10 +2,8 @@
 
 Este projeto é uma aplicação de exemplo para demonstrar a estrutura de um projeto .NET Core com arquitetura DDD. Aplicando conceitos de TDD, SOLID e Clean Code.
 
-## Estrutura de pastas
-- src 
 
-### Detalhamento da estrutura de pastas
+## Detalhamento da estrutura de pastas
 - src: contém o código fonte da aplicação.
   - Application: Contém os casos de uso da aplicação.
   - Domain
@@ -27,7 +25,6 @@ Este projeto é uma aplicação de exemplo para demonstrar a estrutura de um projet
 
 #### Execução do projeto
 Para executar o projeto, basta rodar o comando `dotnet run` na pasta raiz do projeto.
-
 
 #### Estrutura de do domínio
 O domínio está dividido em três subdomínios: `Produto`, `Pedido`, e `Pessoa`.
