@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "5197b750-5785-495f-90c1-cd877ad153f8",
+		"name": "DesafioPosArquitetura",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "3445826"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "AdicionarCliente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"John Doe\",\n  \"endereco\": {\n    \"logradouro\": \"Street\",\n    \"numero\": 123,\n    \"complemento\": \"Apt 1\",\n    \"bairro\": \"Neighborhood\",\n    \"cidade\": \"City\",\n    \"estado\": \"State\",\n    \"cep\": \"12345-678\"\n  },\n  \"contato\": {\n    \"telefone\": \"123456789\",\n    \"email\": \"email@example.com\"\n  },\n  \"dataNascimento\": \"1990-01-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/cliente",
+						"description": "Generated from cURL: curl -X POST \"https://yourapiurl/api/cliente\" -H \"Content-Type: application/json\" -d '{\n  \"nome\": \"John Doe\",\n  \"endereco\": {\n    \"logradouro\": \"Street\",\n    \"numero\": 123,\n    \"complemento\": \"Apt 1\",\n    \"bairro\": \"Neighborhood\",\n    \"cidade\": \"City\",\n    \"estado\": \"State\",\n    \"cep\": \"12345-678\"\n  },\n  \"contato\": {\n    \"telefone\": \"123456789\",\n    \"email\": \"email@example.com\"\n  },\n  \"dataNascimento\": \"1990-01-01\"\n}'\n"
+					},
+					"response": []
+				},
+				{
+					"name": "AtualizarCliente",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"nome\": \"John Doe Updated\",\n  \"endereco\": {\n    \"logradouro\": \"Street\",\n    \"numero\": 123,\n    \"complemento\": \"Apt 1\",\n    \"bairro\": \"Neighborhood\",\n    \"cidade\": \"City\",\n    \"estado\": \"State\",\n    \"cep\": \"12345-678\"\n  },\n  \"contato\": {\n    \"telefone\": \"123456789\",\n    \"email\": \"email@example.com\"\n  },\n  \"dataNascimento\": \"1990-01-01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/cliente/1",
+						"description": "Generated from cURL: curl -X PUT \"https://yourapiurl/api/cliente/1\" -H \"Content-Type: application/json\" -d '{\n  \"id\": 1,\n  \"nome\": \"John Doe Updated\",\n  \"endereco\": {\n    \"logradouro\": \"Street\",\n    \"numero\": 123,\n    \"complemento\": \"Apt 1\",\n    \"bairro\": \"Neighborhood\",\n    \"cidade\": \"City\",\n    \"estado\": \"State\",\n    \"cep\": \"12345-678\"\n  },\n  \"contato\": {\n    \"telefone\": \"123456789\",\n    \"email\": \"email@example.com\"\n  },\n  \"dataNascimento\": \"1990-01-01\"\n}'\n"
+					},
+					"response": []
+				},
+				{
+					"name": "RemoverCliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/api/cliente/1",
+						"description": "Generated from cURL: curl -X DELETE \"https://yourapiurl/api/cliente/1\"\n"
+					},
+					"response": []
+				},
+				{
+					"name": "ObterClientePorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/cliente/1",
+						"description": "Generated from cURL: curl -X GET \"https://yourapiurl/api/cliente/1\"\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "AtualizarPedido",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"dataPedido\": \"2023-10-01T00:00:00\",\n  \"valorTotal\": 150.0,\n  \"status\": \"PagamentoConfirmado\",\n  \"cliente\": {\n    \"id\": 1,\n    \"nome\": \"John Doe\",\n    \"endereco\": {\n      \"logradouro\": \"Street\",\n      \"numero\": 123,\n      \"complemento\": \"Apt 1\",\n      \"bairro\": \"Neighborhood\",\n      \"cidade\": \"City\",\n      \"estado\": \"State\",\n      \"cep\": \"12345-678\"\n    },\n    \"contato\": {\n      \"telefone\": \"123456789\",\n      \"email\": \"email@example.com\"\n    },\n    \"dataNascimento\": \"1990-01-01\"\n  },\n  \"itens\": [\n    {\n      \"id\": 1,\n      \"quantidade\": 3,\n      \"precoUnitario\": 50.0,\n      \"produto\": {\n        \"id\": 1,\n        \"nome\": \"Produto Teste\",\n        \"descricao\": \"Descrição do Produto Teste\",\n        \"preco\": 50.0,\n        \"estoque\": 100,\n        \"categoria\": {\n          \"id\": 1,\n          \"nome\": \"Categoria Teste\",\n          \"descricao\": \"Descrição da Categoria Teste\"\n        }\n      }\n    }\n  ],\n  \"pagamento\": {\n    \"id\": 1,\n    \"formaPagamento\": \"CartaoCredito\",\n    \"dataPagamento\": \"2023-10-01T00:00:00\"\n  },\n  \"enderecoEntrega\": {\n    \"logradouro\": \"Street\",\n    \"numero\": 123,\n    \"complemento\": \"Apt 1\",\n    \"bairro\": \"Neighborhood\",\n    \"cidade\": \"City\",\n    \"estado\": \"State\",\n    \"cep\": \"12345-678\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/pedido/1",
+						"description": "Generated from cURL: curl -X PUT \"https://yourapiurl/api/pedido/1\" -H \"Content-Type: application/json\" -d '{\n  \"id\": 1,\n  \"dataPedido\": \"2023-10-01T00:00:00\",\n  \"valorTotal\": 150.0,\n  \"status\": \"PagamentoConfirmado\",\n  \"cliente\": {\n    \"id\": 1,\n    \"nome\": \"John Doe\",\n    \"endereco\": {\n      \"logradouro\": \"Street\",\n      \"numero\": 123,\n      \"complemento\": \"Apt 1\",\n      \"bairro\": \"Neighborhood\",\n      \"cidade\": \"City\",\n      \"estado\": \"State\",\n      \"cep\": \"12345-678\"\n    },\n    \"contato\": {\n      \"telefone\": \"123456789\",\n      \"email\": \"email@example.com\"\n    },\n    \"dataNascimento\": \"1990-01-01\"\n  },\n  \"itens\": [\n    {\n      \"id\": 1,\n      \"quantidade\": 3,\n      \"precoUnitario\": 50.0,\n      \"produto\": {\n        \"id\": 1,\n        \"nome\": \"Produto Teste\",\n        \"descricao\": \"Descrição do Produto Teste\",\n        \"preco\": 50.0,\n        \"estoque\": 100,\n        \"categoria\": {\n          \"id\": 1,\n          \"nome\": \"Categoria Teste\",\n          \"descricao\": \"Descrição da Categoria Teste\"\n        }\n      }\n    }\n  ],\n  \"pagamento\": {\n    \"id\": 1,\n    \"formaPagamento\": \"CartaoCredito\",\n    \"dataPagamento\": \"2023-10-01T00:00:00\"\n  },\n  \"enderecoEntrega\": {\n    \"logradouro\": \"Street\",\n    \"numero\": 123,\n    \"complemento\": \"Apt 1\",\n    \"bairro\": \"Neighborhood\",\n    \"cidade\": \"City\",\n    \"estado\": \"State\",\n    \"cep\": \"12345-678\"\n  }\n}'\n"
+					},
+					"response": []
+				},
+				{
+					"name": "RemoverPedido",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/api/pedido/1",
+						"description": "Generated from cURL: curl -X DELETE \"https://yourapiurl/api/pedido/1\"\n"
+					},
+					"response": []
+				},
+				{
+					"name": "ObterPedidoPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/pedido/1",
+						"description": "Generated from cURL: curl -X GET \"https://yourapiurl/api/pedido/1\"\n"
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionarPedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"dataPedido\": \"2023-10-01T00:00:00\",\n  \"valorTotal\": 100.0,\n  \"status\": 2,\n  \"cliente\": {\n    \"id\": 1,\n    \"nome\": \"John Doe\",\n    \"endereco\": {\n      \"logradouro\": \"Street\",\n      \"numero\": 123,\n      \"complemento\": \"Apt 1\",\n      \"bairro\": \"Neighborhood\",\n      \"cidade\": \"City\",\n      \"estado\": \"State\",\n      \"cep\": \"12345-678\"\n    },\n    \"contato\": {\n      \"telefone\": \"123456789\",\n      \"email\": \"email@example.com\"\n    },\n    \"dataNascimento\": \"1990-01-01\"\n  },\n  \"itens\": [\n    {\n      \"id\": 1,\n      \"nome\": \"Playstation 5\",\n      \"descricao\": \"Console\",\n      \"quantidade\": 2,\n      \"precoUnitario\": 50.0,\n      \"produto\": {\n        \"id\": 1,\n        \"nome\": \"Produto Teste\",\n        \"descricao\": \"Descrição do Produto Teste\",\n        \"preco\": 50.0,\n        \"estoque\": 100,\n        \"categoria\": {\n          \"id\": 1,\n          \"nome\": \"Categoria Teste\",\n          \"descricao\": \"Descrição da Categoria Teste\"\n        }\n      }\n    }\n  ],\n  \"pagamento\": {\n    \"id\": 1,\n    \"formaPagamento\": 2,\n    \"dataPagamento\": \"2023-10-01T00:00:00\"\n  },\n  \"enderecoEntrega\": {\n    \"logradouro\": \"Street\",\n    \"numero\": 123,\n    \"complemento\": \"Apt 1\",\n    \"bairro\": \"Neighborhood\",\n    \"cidade\": \"City\",\n    \"estado\": \"State\",\n    \"cep\": \"12345-678\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/pedido",
+						"description": "Generated from cURL: curl -X POST \"https://yourapiurl/api/pedido\" -H \"Content-Type: application/json\" -d '{\n  \"id\": 1,\n  \"dataPedido\": \"2023-10-01T00:00:00\",\n  \"valorTotal\": 100.0,\n  \"status\": \"AguardandoPagamento\",\n  \"cliente\": {\n    \"id\": 1,\n    \"nome\": \"John Doe\",\n    \"endereco\": {\n      \"logradouro\": \"Street\",\n      \"numero\": 123,\n      \"complemento\": \"Apt 1\",\n      \"bairro\": \"Neighborhood\",\n      \"cidade\": \"City\",\n      \"estado\": \"State\",\n      \"cep\": \"12345-678\"\n    },\n    \"contato\": {\n      \"telefone\": \"123456789\",\n      \"email\": \"email@example.com\"\n    },\n    \"dataNascimento\": \"1990-01-01\"\n  },\n  \"itens\": [\n    {\n      \"id\": 1,\n      \"quantidade\": 2,\n      \"precoUnitario\": 50.0,\n      \"produto\": {\n        \"id\": 1,\n        \"nome\": \"Produto Teste\",\n        \"descricao\": \"Descrição do Produto Teste\",\n        \"preco\": 50.0,\n        \"estoque\": 100,\n        \"categoria\": {\n          \"id\": 1,\n          \"nome\": \"Categoria Teste\",\n          \"descricao\": \"Descrição da Categoria Teste\"\n        }\n      }\n    }\n  ],\n  \"pagamento\": {\n    \"id\": 1,\n    \"formaPagamento\": \"CartaoCredito\",\n    \"dataPagamento\": \"2023-10-01T00:00:00\"\n  },\n  \"enderecoEntrega\": {\n    \"logradouro\": \"Street\",\n    \"numero\": 123,\n    \"complemento\": \"Apt 1\",\n    \"bairro\": \"Neighborhood\",\n    \"cidade\": \"City\",\n    \"estado\": \"State\",\n    \"cep\": \"12345-678\"\n  }\n}'"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "AdicionarProduto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 2,\n  \"nome\": \"Produto Teste\",\n  \"descricao\": \"Descrição do Produto Teste\",\n  \"preco\": 100.0,\n  \"estoque\": 10,\n  \"categoria\": {\n    \"id\": 1,\n    \"nome\": \"Categoria Teste\",\n    \"descricao\": \"Descrição da Categoria Teste\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/produto",
+						"description": "Generated from cURL: curl -X POST \"https://yourapiurl/api/produto\" -H \"Content-Type: application/json\" -d '{\n  \"id\": 1,\n  \"nome\": \"Produto Teste\",\n  \"descricao\": \"Descrição do Produto Teste\",\n  \"preco\": 100.0,\n  \"estoque\": 10,\n  \"categoria\": {\n    \"id\": 1,\n    \"nome\": \"Categoria Teste\",\n    \"descricao\": \"Descrição da Categoria Teste\"\n  }\n}'\n\n"
+					},
+					"response": []
+				},
+				{
+					"name": "RemoverProduto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/api/produto/1",
+						"description": "Generated from cURL: curl -X DELETE \"https://yourapiurl/api/produto/1\"\n\n"
+					},
+					"response": []
+				},
+				{
+					"name": "AtualizarProduto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"nome\": \"Produto Teste Atualizado\",\n  \"descricao\": \"Descrição do Produto Teste Atualizado\",\n  \"preco\": 150.0,\n  \"estoque\": 20,\n  \"categoria\": {\n    \"id\": 1,\n    \"nome\": \"Categoria Teste\",\n    \"descricao\": \"Descrição da Categoria Teste\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/produto/1",
+						"description": "Generated from cURL: curl -X PUT \"https://yourapiurl/api/produto/1\" -H \"Content-Type: application/json\" -d '{\n  \"id\": 1,\n  \"nome\": \"Produto Teste Atualizado\",\n  \"descricao\": \"Descrição do Produto Teste Atualizado\",\n  \"preco\": 150.0,\n  \"estoque\": 20,\n  \"categoria\": {\n    \"id\": 1,\n    \"nome\": \"Categoria Teste\",\n    \"descricao\": \"Descrição da Categoria Teste\"\n  }\n}'\n\n"
+					},
+					"response": []
+				},
+				{
+					"name": "ObterProdutoPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/produto/1",
+						"description": "Generated from cURL: curl -X GET \"https://yourapiurl/api/produto/1\"\n\n"
+					},
+					"response": []
+				},
+				{
+					"name": "ObterProdutoPorNome",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/produto/nome/Produto%20Teste",
+						"description": "Generated from cURL: curl -X GET \"https://yourapiurl/api/produto/nome/Produto%20Teste\"\n\n"
+					},
+					"response": []
+				},
+				{
+					"name": "ObterTodosOsProdutos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/produto",
+						"description": "Generated from cURL: curl -X GET \"https://yourapiurl/api/produto\"\n\n"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:5292",
+			"type": "string"
+		}
+	]
+}
